@@ -10,7 +10,7 @@ The problems with the original was that it didn't work on the Android emulator a
 
 In my experience, the PCL [SQLite.Net NuGet package](https://www.nuget.org/packages/SQLite.Net-PCL) doesn't work.
 
-What I did was switched it out with the PCL [sqlite-net-pci Nuget package](https://www.nuget.org/packages/sqlite-net-pcl/1.4.118), which works just fine.
+What I did was switched it out with the PCL [sqlite-net-pcl Nuget package](https://www.nuget.org/packages/sqlite-net-pcl/1.4.118), which works just fine.
 
 It's really bad that the VS 2017 Mac version does not work well as the PC version.
 
