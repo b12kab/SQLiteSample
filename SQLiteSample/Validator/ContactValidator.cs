@@ -19,6 +19,7 @@ namespace SQLiteSample.Validator
         {
             if (!string.IsNullOrEmpty(stringValue))
                 return true;
+
             return false;
         }
     }

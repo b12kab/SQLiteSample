@@ -13,8 +13,6 @@ namespace SQLiteSample.Android.Implementations
 
             // Documents folder  
             var path = Path.Combine(documentsPath, DatabaseHelper.DbFileName);
-            //var plat = new SQLite.Platform.XamarinAndroid.SQLitePlatformAndroid();
-            //var conn = new SQLiteConnection(plat, path);
             var conn = new SQLiteConnection(path);
 
             // Return the database connection  

@@ -42,6 +42,7 @@
                         BackgroundColor="White" 
                         HeightRequest="40" 
                         HorizontalOptions="FillAndExpand"/>
+        
         <Entry x:Name="txtAddress" 
                Text="{Binding Address}" 
                BackgroundColor="White"  

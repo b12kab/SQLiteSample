@@ -1,6 +1,6 @@
 *Xamarin Forms MVVM example*
 
-This was created using VS 2017 Mac version 7.5.1
+This was created using VS 2017 Mac version 7.5.1, updated with version 7.6.8.
 
 The source for this is released under the MIT license. 
 

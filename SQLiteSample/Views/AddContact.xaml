@@ -14,17 +14,5 @@
                 FontAttributes="Bold" 
                 TextColor="White" 
                 BackgroundColor="#5989B5"/>
-<!--        <Label Text="View All Contacts" 
-               IsVisible="{Binding IsViewAll}" 
-               x:Name="ViewLbl" 
-               TextColor="Black" 
-               HorizontalOptions="EndAndExpand" 
-               FontSize="15">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding ViewAllContactsCommand}" 
-                                      NumberOfTapsRequired="1" />
-            </Label.GestureRecognizers>
-        </Label>
--->
     </StackLayout>
 </ContentPage>

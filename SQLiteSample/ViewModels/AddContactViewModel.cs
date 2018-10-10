@@ -12,7 +12,6 @@ namespace SQLiteSample.ViewModels
     public class AddContactViewModel : BaseContactViewModel
     {
         public ICommand AddContactCommand { get; private set; }
-        //public ICommand ViewAllContactsCommand { get; private set; }
 
         public AddContactViewModel(INavigation navigation)
         {
@@ -22,7 +21,6 @@ namespace SQLiteSample.ViewModels
             _contactRepository = new ContactRepository();
 
             AddContactCommand = new Command(async () => await AddContact());
-            //ViewAllContactsCommand = new Command(async () => await ShowContactList());
         }
 
         async Task AddContact()

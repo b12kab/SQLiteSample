@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
-using SQLiteSample.Helpers;
 using SQLiteSample.Models;
 using SQLiteSample.Services;
 using SQLiteSample.Validator;

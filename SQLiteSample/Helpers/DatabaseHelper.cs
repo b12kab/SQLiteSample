@@ -9,7 +9,6 @@ namespace SQLiteSample.Helpers
 {
     public class DatabaseHelper
     {
-
         static SQLiteConnection sqliteconnection;
         public const string DbFileName = "Contacts.db";
 
