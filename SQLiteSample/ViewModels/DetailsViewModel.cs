@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
+using FluentValidation;
 using SQLiteSample.Models;
 using SQLiteSample.Services;
 using SQLiteSample.Validator;
@@ -33,7 +34,8 @@ namespace SQLiteSample.ViewModels
 
         async Task UpdateContact()
         {
-            var validationResults = _contactValidator.Validate(_contact);
+            var context = new ValidationContext<ContactInfo>(_contact);
+            var validationResults = _contactValidator.Validate(context);
 
             if (validationResults.IsValid)
             {

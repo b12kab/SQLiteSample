@@ -1,5 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using FluentValidation;
 using SQLiteSample.Helpers;
 using SQLiteSample.Models;
 using SQLiteSample.Services;
@@ -25,7 +27,8 @@ namespace SQLiteSample.ViewModels
 
         async Task AddContact()
         {
-            var validationResults = _contactValidator.Validate(_contact);
+            var context = new ValidationContext<ContactInfo>(_contact);
+            var validationResults = _contactValidator.Validate(context);
 
             if (validationResults.IsValid)
             {
