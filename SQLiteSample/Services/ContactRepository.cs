@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using SQLiteSample.Helpers;
+﻿using SQLiteSample.Helpers;
 using SQLiteSample.Models;
+using System;
+using System.Collections.Generic;
 
 namespace SQLiteSample.Services
 {
@@ -10,36 +10,36 @@ namespace SQLiteSample.Services
         DatabaseHelper _databaseHelper;  
         public ContactRepository(){  
             _databaseHelper = new DatabaseHelper();  
-        }  
+        }
   
-        public void DeleteContact(int contactID)  
+        public int DeleteContact(int contactID)  
         {  
-            _databaseHelper.DeleteContact(contactID);  
-        }  
+            return _databaseHelper.DeleteContact(contactID);  
+        }
   
         public void DeleteAllContacts()  
         {  
             _databaseHelper.DeleteAllContacts();  
-        }  
+        }
   
         public List<ContactInfo> GetAllContactsData()  
         {  
             return _databaseHelper.GetAllContactsData();  
-        }  
+        }
   
         public ContactInfo GetContactData(int contactID)  
         {  
             return _databaseHelper.GetContactData(contactID);  
-        }  
+        }
   
-        public void InsertContact(ContactInfo contact)  
+        public int InsertContact(ContactInfo contact)  
         {  
-            _databaseHelper.InsertContact(contact);  
-        }  
+            return _databaseHelper.InsertContact(contact);  
+        }
   
         public void UpdateContact(ContactInfo contact)  
         {  
             _databaseHelper.UpdateContact(contact);  
-        }  
+        }
     }
 }

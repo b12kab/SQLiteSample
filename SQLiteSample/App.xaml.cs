@@ -1,36 +1,19 @@
-using System;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 using SQLiteSample.Services;
 using SQLiteSample.Views;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using System;
 
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace SQLiteSample
 {
     public partial class App : Application
     {
-        IContactRepository _contactRepository;
         public App()
         {
             InitializeComponent();
 
-            _contactRepository = new ContactRepository();
-            OnAppStart();
-        }
-
-        public void OnAppStart()
-        {
-            var getLocalDB = _contactRepository.GetAllContactsData();
-
-            //if (getLocalDB.Count > 0)
-            //{
-                MainPage = new NavigationPage(new ContactList());
-            //}
-            //else
-            //{
-            //    MainPage = new NavigationPage(new AddContact());
-            //}
-
+            MainPage = new NavigationPage(new ContactList());
         }
 
         protected override void OnStart()

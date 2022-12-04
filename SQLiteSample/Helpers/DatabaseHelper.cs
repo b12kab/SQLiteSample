@@ -1,9 +1,11 @@
-﻿using Xamarin.Forms;  
-using System.Collections.Generic;  
-using System.Linq;  
+﻿using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using SQLiteSample.Services;
 using SQLiteSample.Models;  
-using System;
 using SQLite;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SQLiteSample.Helpers
 {
@@ -11,10 +13,13 @@ namespace SQLiteSample.Helpers
     {
         static SQLiteConnection sqliteconnection;
         public const string DbFileName = "Contacts.db";
+        private GenerateConnection SqlLiteConnection { get; set; }
 
         public DatabaseHelper()
         {
-            sqliteconnection = DependencyService.Get<ISQLite>().GetConnection();
+            SqlLiteConnection = new GenerateConnection();
+            sqliteconnection = SqlLiteConnection.Connection;
+
             sqliteconnection.CreateTable<ContactInfo>();
         }
 
@@ -38,15 +43,15 @@ namespace SQLiteSample.Helpers
         }
 
         // Delete Specific Contact  
-        public void DeleteContact(int id)
+        public int DeleteContact(int id)
         {
-            sqliteconnection.Delete<ContactInfo>(id);
+            return sqliteconnection.Delete<ContactInfo>(id);
         }
 
         // Insert new Contact to DB   
-        public void InsertContact(ContactInfo contact)
+        public int InsertContact(ContactInfo contact)
         {
-            sqliteconnection.Insert(contact);
+            return sqliteconnection.Insert(contact);
         }
 
         // Update Contact Data  

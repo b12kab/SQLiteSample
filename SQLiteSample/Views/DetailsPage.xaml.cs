@@ -1,8 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.PlatformConfiguration;
+using Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;
+using Microsoft.Maui.Controls.Xaml;
+
 using SQLiteSample.ViewModels;
-using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+
+using System;
+using System.Collections.Generic;
 
 namespace SQLiteSample.Views
 {
@@ -11,7 +16,7 @@ namespace SQLiteSample.Views
         public DetailsPage(int contactID)
         {
             InitializeComponent();
-            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
+            On<iOS>().SetUseSafeArea(true);
             this.BindingContext = new DetailsViewModel(Navigation, contactID);  
         }
     }

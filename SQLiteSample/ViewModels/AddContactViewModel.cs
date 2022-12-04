@@ -1,13 +1,16 @@
-﻿using System.Reflection;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using FluentValidation;
+﻿using FluentValidation;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 using SQLiteSample.Helpers;
 using SQLiteSample.Models;
 using SQLiteSample.Services;
 using SQLiteSample.Validator;
 using SQLiteSample.Views;
-using Xamarin.Forms;
+using Splat;
+using System.Reflection;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SQLiteSample.ViewModels
 {
@@ -20,7 +23,8 @@ namespace SQLiteSample.ViewModels
             _navigation = navigation;
             _contactValidator = new ContactValidator();
             _contact = new ContactInfo();
-            _contactRepository = new ContactRepository();
+            //_contactRepository = DependencyService.Get<IContactRepository>();
+            _contactRepository = Locator.Current.GetService<ContactRepository>();
 
             AddContactCommand = new Command(async () => await AddContact());
         }
@@ -35,7 +39,7 @@ namespace SQLiteSample.ViewModels
                 bool isUserAccept = await Application.Current.MainPage.DisplayAlert("Add Contact", "Do you want to save Contact details?", "OK", "Cancel");
                 if (isUserAccept)
                 {
-                    _contactRepository.InsertContact(_contact);
+                    int rowsAdded = _contactRepository.InsertContact(_contact);
                     await _navigation.PopAsync();
                 }
             }

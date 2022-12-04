@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>  
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+﻿<?xml version="1.0" encoding="UTF-8"?>  
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
              Title="Add Contact" 
              BackgroundColor="#D5E7FA" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
@@ -9,7 +9,6 @@
         <local:ContactView />
         <Button x:Name="SubmitButton" 
                 Command="{Binding AddContactCommand}" 
-                BorderRadius="0" 
                 Text="Save Contact" 
                 FontAttributes="Bold" 
                 TextColor="White" 

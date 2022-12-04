@@ -1,9 +1,12 @@
-﻿using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 using SQLiteSample.Models;
 using SQLiteSample.Services;
 using SQLiteSample.Views;
-using Xamarin.Forms;
+using Splat;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SQLiteSample.ViewModels
 {
@@ -15,7 +18,8 @@ namespace SQLiteSample.ViewModels
         public ContactListViewModel(INavigation navigation)
         {
             _navigation = navigation;
-            _contactRepository = new ContactRepository();
+            //_contactRepository = DependencyService.Get<IContactRepository>();
+            _contactRepository = Locator.Current.GetService<ContactRepository>();
 
             AddCommand = new Command(async () => await ShowAddContact());
             DeleteAllContactsCommand = new Command(async () => await DeleteAllContacts());
@@ -39,7 +43,6 @@ namespace SQLiteSample.ViewModels
             if (isUserAccept)
             {
                 _contactRepository.DeleteAllContacts();
-                //await _navigation.PushAsync(new AddContact());
                 FetchContacts();
             }
         }

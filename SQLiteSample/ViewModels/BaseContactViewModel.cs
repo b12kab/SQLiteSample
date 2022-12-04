@@ -1,18 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using FluentValidation;
+﻿using FluentValidation;
+
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
+
 using SQLiteSample.Helpers;
 using SQLiteSample.Models;
 using SQLiteSample.Services;
-using Xamarin.Forms;
+
+using System.Reflection;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 
 namespace SQLiteSample.ViewModels
 {
     public class BaseContactViewModel : INotifyPropertyChanged
     {
-
         public ContactInfo _contact;
 
         public INavigation _navigation;
